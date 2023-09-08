@@ -11,11 +11,11 @@
 
 int main(void)
 {
-	char num = 0;
+	int num = 0;
 
 	while (num < 10)
 	{
-		putchar(num);
+		printf("%d", num);
 		num++;
 	}
 
