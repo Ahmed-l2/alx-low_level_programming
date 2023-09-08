@@ -1,0 +1,33 @@
+#include <stdio.h>
+/* more headers goes there */
+
+/* betty style doc for function main goes there*/
+
+/**
+ * main - Entry point
+ * sizeof: provides byte and size of variable
+ * Return: Always 0 (success)
+ */
+
+int main(void)
+{
+        char lc = 'a';
+        char uc = 'A';
+
+        while (lc <= 'z')
+        {
+                putchar(lc);
+                lc++;
+        }
+
+        while (uc <= 'Z')
+        {
+                putchar(uc);
+                uc++;
+        }
+
+        putchar('\n');
+
+        return (0);
+}
+
