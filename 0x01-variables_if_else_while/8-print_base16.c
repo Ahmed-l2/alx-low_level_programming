@@ -11,7 +11,7 @@
 
 int main(void)
 {
-	char hex[] = "123456789abcdef";
+	char hex[] = "0123456789abcdef";
 	int i = 0;
 
 	while (i < 16)
