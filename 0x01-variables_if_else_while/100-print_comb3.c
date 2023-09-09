@@ -11,21 +11,28 @@
 
 int main(void)
 {
-	int num = 1;
+	int digit1 = 1, digit2;
 
-	while (num < 90)
+	while (digit1 <= 9)
 	{
-		putchar('0' + num / 10); /* Print the tens digit */
-		putchar('0' + num % 10); /* Print the oones digit */
-
-		if (num <= 88)
+		digit2 = 0;
+		while (digit2 <= 9)
 		{
-			putchar(',');
-			putchar(' ');
-		}
-		num++;
-	}
+			if (digit1 != digit2 && digit1 < digit2)
+			{
+				putchar(digit1 + 48); /* Print the tens digit */
+				putchar(digit2 + 48); /* Print the oones digit */
 
+				if (digit1 + digit2 != 17)
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
+			digit2++;
+		}
+		digit1++;
+	}
 	putchar('\n');
 
 	return (0);
