@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _islower - function prototype
+ * _isalpha - function prototype
  *
  * @c: checks input of function
  *
