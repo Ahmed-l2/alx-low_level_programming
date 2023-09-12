@@ -3,7 +3,7 @@
 /**
  * print_sign - prints the sign of a number
  *
- * @n - user defined integer
+ * @n: takes input from function.
  *
  * Return: 1 is greater than 0, 0 if equal to 0 and -1 if less than zero
  */
