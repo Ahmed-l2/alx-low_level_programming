@@ -3,7 +3,7 @@
 /**
  * print_last_digit - Prints the last digit of a number
  *
- * @n: Takes in input for foundation 
+ * @n: Takes in input for foundation
  *
  * Return: Always 0 (success)
  */
@@ -12,7 +12,7 @@ int print_last_digit(int n)
 {
 	int lastDigit;
 
-	if (n < 0)	
+	if (n < 0)
 	{
 		lastDigit = -1 * (n % 10);
 	}
