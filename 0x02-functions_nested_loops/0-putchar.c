@@ -1,8 +1,9 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
-* main (0) : Beginning of program
+* main -  Entry point
+*
+* Description : prints _putc har using putchar prototype
 *
 *return (0) : sucess
 */
