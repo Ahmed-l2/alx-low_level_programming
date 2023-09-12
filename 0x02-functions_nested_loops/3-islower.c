@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  * _islower - function prototype
  *
@@ -15,6 +15,7 @@ int _islower(int c)
 	{
 		return (1);
 	}
+	
 	else
 	{
 		return (0);
