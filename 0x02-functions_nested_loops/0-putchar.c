@@ -5,7 +5,7 @@
 *
 * Description : prints _putc har using putchar prototype
 *
-*return (0) : sucess
+*return : 0 always sucessful
 */
 
 int main(void)
@@ -18,7 +18,7 @@ int main(void)
 		_putchar(str[i]);
 		++i;
 	}
-	
+
 	_putchar('\n');
 
 	return (0);
