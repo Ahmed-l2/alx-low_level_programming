@@ -1,17 +1,23 @@
 #include "main.h"
 
 /**
-* main -  Entry point
-*
-* Description : prints _putc har using putchar prototype
-*
-* Return: Always 0 (Sucess)#include "main.h"
-*/
+ * print_alphabet - function
+ *
+ * Description: prints alphabet from a to z
+ *
+ */
 
-int main(void)
+
+void print_alphabet(void)
+
 {
 
-	print_alphabet();
-	return (0);
+	char ch;
 
+	for (ch = 'a'; ch <= 'z'; ch++)
+	{
+		_putchar(ch);
+	}
+
+	_putchar('\n');
 }
