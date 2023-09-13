@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * print_times_table - prints the n times table, starting with 0
+ *
+ * @n: takes in input
+ *
+ */
 
 void print_times_table(int n)
 {
@@ -16,7 +22,7 @@ void print_times_table(int n)
 				_putchar(' ');
 
 				prod = num * mult;
-				
+
 				if (prod <= 9)
 				{
 					_putchar(' ');
