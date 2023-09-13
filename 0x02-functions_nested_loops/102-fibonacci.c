@@ -22,7 +22,7 @@ int main(void)
 		printf("%d", sum);
 		if (i < 47)
 		{
-			printf(", ")
+			printf(", ");
 		}
 		a = b;
 		b = sum;
