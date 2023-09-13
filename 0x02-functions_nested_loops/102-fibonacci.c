@@ -14,14 +14,14 @@ int main(void)
 	int a = 1, b = 2;
 	int sum;
 	int i;
-	printf("%d, \n%d, \n", a, b);
-	for(i = 0; i < 48; i++)
+	printf ("%d, %d, ", a, b);
+	for (i = 0; i < 48; i++)
 	{
 		sum = a + b;
-		printf("%d, \n", sum);
+		printf("%d, ", sum);
 		a = b;
 		b = sum;
 	}
+	printf("\n");
 	return (0);
 }
-
