@@ -19,7 +19,11 @@ int main(void)
 	for (i = 0; i < 48; i++)
 	{
 		sum = a + b;
-		printf("%d, ", sum);
+		printf("%d", sum);
+		if (i < 47)
+		{
+			printf(", ")
+		}
 		a = b;
 		b = sum;
 	}
