@@ -11,15 +11,15 @@
 
 int main(void)
 {
-	int a = 1, b = 2;
-	int sum;
+	long int a = 1, b = 2;
+	long int sum;
 	int i;
 
-	printf("%d, %d, ", a, b);
+	printf("%ld, %ld, ", a, b);
 	for (i = 0; i < 48; i++)
 	{
 		sum = a + b;
-		printf("%d", sum);
+		printf("%ld", sum);
 		if (i < 47)
 		{
 			printf(", ");
