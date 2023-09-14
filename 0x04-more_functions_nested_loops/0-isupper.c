@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * _islower - function prototype
+ * _isupper - function prototype
  *
  * Description: Checks if letter is uppercase or not
  * @c: checks input of function
