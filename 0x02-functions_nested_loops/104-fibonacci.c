@@ -16,11 +16,11 @@ int main(void)
 	int i;
 
 	printf("%lu, %lu, ", a, b);
-	for (i = 0; i < 96; i++)
+	for (i = 0; i < 97; i++)
 	{
 		sum = a + b;
 		printf("%lu", sum);
-		if (i < 95)
+		if (i < 96)
 		{
 			printf(", ");
 		}
