@@ -6,6 +6,9 @@
  * Description: takes in int a and int b and multiples
  * multplying them and giving the result
  *
+ * @a: first input
+ * @b: second input
+ *
  * Return: returns result of multiplication
  */
 
