@@ -16,7 +16,7 @@ int main(void)
 	int i;
 
 	printf("%lu, %lu, ", a, b);
-	for (i = 0; i <= 96; i++)
+	for (i = 0; i < 96; i++)
 	{
 		sum = a + b;
 		printf("%lu", sum);
