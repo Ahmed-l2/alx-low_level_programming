@@ -17,16 +17,13 @@ int main(void)
 
 	while (sum < 4000000)
 	{
-		sum = a + b;
-		if (sum < 4000000)
-		{
-			if (sum % 2 == 0)
+			if (b < 4000000 && b % 2 == 0)
 			{
-				even_sum += sum;
+				even_sum += b;
 			}
+			sum = a + b;
 			a = b;
 			b = sum;
-		}
 	}
 	printf("%ld", even_sum);
 	printf("\n");
