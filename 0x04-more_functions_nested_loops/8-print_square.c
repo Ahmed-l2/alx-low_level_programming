@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_line - Function prototype
+ * print_square - Function prototype
  *
- * Description: draws a straight line in the terminal
+ * Description: draws a square in the terminal
  *
- * @n: number of times the character _ should be printed
+ * @size: number of squares * number of lines
  */
 
 void print_square(int size)
