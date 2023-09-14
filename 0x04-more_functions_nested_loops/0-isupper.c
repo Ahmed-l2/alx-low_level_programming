@@ -3,6 +3,7 @@
 /**
  * _islower - function prototype
  *
+ * Description: Checks if letter is uppercase or not
  * @c: checks input of function
  *
  * Return: 1 if uppercase otherwise 0
