@@ -1,13 +1,13 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * print_numbers - function
+ * print_most_numbers - function
  *
- * Description: prints the numbers from 0 to 9
+ * Description: prints the numbers from 0 to 9 without 2 and 4
  *
  */
 
-void print_numbers(void)
+void print_most_numbers(void)
 {
 	int num;
 
