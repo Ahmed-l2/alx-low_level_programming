@@ -2,14 +2,7 @@
 
 
 /**
- * main - entry point
- *
- * Description: a program that calculates 98 fibnacci numbers
- *
- * Return: always 0 (success)
- *
- *
- * length_counter - calculates the length of a given number
+ * numLength - calculates the length of a given number
  *
  * @num: takes in input
  *
@@ -30,10 +23,20 @@ int numLength(int num)
 }
 
 
+/**
+ * main - entry point
+ *
+ * Description: a program that calculates 98 fibnacci numbers
+ *
+ * Return: always 0 (success)
+ */
+
+
 int main(void)
 {
 	int count, initial0s;
-	unsigned long f1 = 1, f2 = 2, sum, mx = 1000000000, f1o = 0, f2o = 0, sumo = 0;
+	unsigned long f1 = 1, f2 = 2, sum, 
+		      mx = 1000000000, f1o = 0, f2o = 0, sumo = 0;
 
 	for (count = 1; count <= 98; count++)
 	{
