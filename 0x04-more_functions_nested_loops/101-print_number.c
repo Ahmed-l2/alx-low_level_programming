@@ -9,20 +9,24 @@
  *
  */
 
+
 void print_number(int n)
 {
+	unsigned int num = n;
+
 	if (n < 0)
 	{
 		_putchar('-');
-		print_number(-n);
+		num = -num;
+		print_number(num);
 	}
-	else if (n >= 10)
+	else if (num >= 10)
 	{
-		print_number(n / 10);
-		_putchar((n % 10) + 48);
+		print_number(num / 10);
+		_putchar((num % 10) + 48);
 	}
-	else if (n <= 9)
+	else if (num <= 9)
 	{
-		_putchar(n + 48);
+		_putchar(num + 48);
 	}
 }
