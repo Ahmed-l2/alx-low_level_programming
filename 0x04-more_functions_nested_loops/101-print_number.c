@@ -26,6 +26,6 @@ void print_number(int n)
 	if (num != 0)
 	{
 		print_number(num);
-		_putchar((unsigned int) n % 10 + 48);
+		_putchar(num % 10 + 48);
 	}
 }
