@@ -12,20 +12,16 @@
 
 void print_number(int n)
 {
-	unsigned int num = n;
+	unsigned int i = n;
 
 	if (n < 0)
 	{
-		n *= -1;
-		num = n;
-		_putchar('-');
+		_putchar(45);
+		i = -i;
 	}
-
-	num /= 10;
-
-	if (num != 0)
+	if (i / 10)
 	{
-		print_number(num);
-		_putchar(num % 10 + 48);
+		print_number(i / 10);
 	}
+	_putchar(i % 10 + 48);
 }
