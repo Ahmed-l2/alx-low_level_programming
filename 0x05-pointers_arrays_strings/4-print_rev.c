@@ -5,24 +5,21 @@
  *
  * Description: prints a string, in reverse
  *
- * @s: takes input of str
+ * @s: pointer to string str
  */
 
 void print_rev(char *s)
 {
 	int i = 0;
-	int r;
 
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		i++;
 	}
 
-	r = i;
-	while ((r - 1) >= 0)
+	while (i--)
 	{
-		putchar(s[r - 1]);
-		r--;
+		_putchar(s[i]);
 	}
-	putchar('\n');
+	_putchar('\n');
 }
