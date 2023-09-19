@@ -18,7 +18,8 @@ void rev_string(char *s)
 		l++;
 	}
 
-	char *begin_str, *end_str;
+	char *begin_str;
+	char *end_str;
 	*begin_str = s;
 	*end_str = s + l - 1;
 
