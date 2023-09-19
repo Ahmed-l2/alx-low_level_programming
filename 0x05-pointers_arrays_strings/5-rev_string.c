@@ -1,4 +1,4 @@
-#include "maih.h"
+#include "main.h"
 
 /**
  * rev_string - function prototype
