@@ -19,12 +19,14 @@ void rev_string(char *s)
 		l++;
 	}
 
-	char *begin_str = s, *end_str = s + l - 1;
+	char *begin_str, *end_str;
+	*begin_str = s;
+	*end_str = s + l - 1;
 
 	while (begin_str < end_str)
 	{
 		tmp = *begin_str;
-		*begin_str = end_str;
+		*begin_str = *end_str;
 		*end_str = tmp;
 		begin_str++;
 		end_str--;
