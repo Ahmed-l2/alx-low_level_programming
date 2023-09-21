@@ -14,4 +14,6 @@ void print_array(int *a, int n);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 char *leet(char *);
+char *rot13(char *);
+
 #endif

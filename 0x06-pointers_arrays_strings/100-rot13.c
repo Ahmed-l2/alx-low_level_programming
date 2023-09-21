@@ -33,9 +33,9 @@ leetMap['w'] = 'j', leetMap['W'] = 'J', leetMap['x'] = 'k', leetMap['X'] = 'K',
 leetMap['y'] = 'l', leetMap['Y'] = 'L', leetMap['z'] = 'm', leetMap['Z'] = 'M';
 
 	do {
-		if (leetMap[c[i]] != 0)
+		if (leetMap[(unsigned char) c[i]] != 0)
 		{
-			c[i] = leetMap[c[i]];
+			c[i] = leetMap[(unsigned char) c[i]];
 		}
 		i++;
 	} while (c[i]);
