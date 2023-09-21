@@ -12,10 +12,12 @@ char *leet(char *c)
 {
 	char leetMap[128];
 	int i = 0;
+	int l = 0;
 
-	for (int i = 0; i < 128; i++)
+	while(l < 128)
 	{
-		leetMap[i] = 0;
+		leetMap[l] = 0;
+		l++;
 	}
 
 	leetMap['a'] = '4', leetMap['A'] = '4',
@@ -25,9 +27,9 @@ char *leet(char *c)
 	leetMap['l'] = '1', leetMap['L'] = '1';
 
 	do {
-		if (leetMap[c[i]] != 0)
+		if (leetMap[(unsigned char) c[i]] != 0)
 		{
-			c[i] = leetMap[c[i]];
+			c[i] = leetMap[(unsigned char) c[i]];
 		}
 		i++;
 	} while (c[i]);
