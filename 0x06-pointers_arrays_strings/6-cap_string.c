@@ -1,31 +1,71 @@
 #include "main.h"
 
+
 /**
- * string_toupper - function that changes all lowercase letters of a string
- * to uppercase
+ * isLower - checks if letter is lower case
  *
- * @c: input string
+ * @c: given letter
  *
- * Return: strings swapped string
+ * Return: returns letter
  */
 
-char *string_toupper(char *c)
+int isLower(char c)
+{
+	return (c >= 97 && c <= 122);
+}
+
+/**
+ * isSeparator - checks if the string is a separatos
+ *
+ * @c: given string
+ *
+ * Return: returns 1 if string is seParator otherwise 0
+ */
+
+int isSeparator(char c)
 {
 	int i;
-	int l = 0;
+	char separator[] = " \t\n,.!?\"(){}";
 
-	while (c[l])
+	for (i = 0; i < 12; i++)
 	{
-		l++;
-	}
-
-	for (i = 0; i <= l; i++)
-	{
-		if (c[i] >= 97 && c[i] <= 122)
+		if (c == separator[i])
 		{
-			c[i] = c[i] - 32;
+			return (1);
 		}
 	}
+	return (0);
+}
 
-	return (c);
+/**
+ * cap_string - capitalizes a string
+ *
+ * @s: given string
+ *
+ * Return: returns capatilized string
+ */
+
+char *cap_string(char *s)
+{
+	char *ptr = s;
+	int foundSeparator = 1;
+
+	while (*s)
+	{
+		if (isSeparator(*s))
+		{
+			foundSeparator = 1;
+		}
+		else if (isLower(*s) && foundSeparator)
+		{
+			*s -= 32;
+			foundSeparator = 0;
+		}
+		else
+		{
+			foundSeparator = 0;
+		}
+		s++;
+	}
+	return (ptr);
 }
