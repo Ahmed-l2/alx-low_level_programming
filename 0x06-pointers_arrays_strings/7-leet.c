@@ -14,7 +14,7 @@ char *leet(char *c)
 	int i = 0;
 	int l = 0;
 
-	while(l < 128)
+	while (l < 128)
 	{
 		leetMap[l] = 0;
 		l++;
