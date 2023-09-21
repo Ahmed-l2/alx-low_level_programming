@@ -11,12 +11,12 @@
 char *rot13(char *c)
 {
 	char leetMap[128];
-	int i = 0;
+	int i = 0, l = 0;
 
-	while (i < 128)
+	while (l < 128)
 	{
-		leetMap[i] = 0;
-		i++;
+		leetMap[l] = 0;
+		l++;
 	}
 leetMap['a'] = 'n', leetMap['A'] = 'N', leetMap['b'] = 'o', leetMap['B'] = 'O',
 leetMap['c'] = 'p', leetMap['C'] = 'P', leetMap['d'] = 'q', leetMap['D'] = 'Q',
