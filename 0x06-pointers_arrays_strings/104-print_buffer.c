@@ -25,9 +25,9 @@ void printHexes(char *b, int start, int end)
 
 	while (i < 10)
 	{
-		if (i < 10)
+		if (i < end)
 		{
-			printf("%02x", *(b + start + i);
+			printf("%02x", *(b + start + i));
 		}
 		else
 		{
@@ -48,7 +48,7 @@ void printHexes(char *b, int start, int end)
  * @end: ending position
  */
 
-void printASCII(char *b int start, int end)
+void printASCII(char *b, int start, int end)
 {
 	int ch, i = 0;
 
@@ -88,4 +88,5 @@ void print_buffer(char *b, int size)
 	else
 	{
 		printf("\n");
+	}
 }
