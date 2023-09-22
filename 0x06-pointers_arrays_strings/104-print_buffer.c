@@ -37,6 +37,7 @@ void printHexes(char *b, int start, int end)
 		{
 			printf(" ");
 		}
+		i++;
 	}
 }
 
