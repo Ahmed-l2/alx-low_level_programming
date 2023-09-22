@@ -15,5 +15,7 @@ char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 char *leet(char *);
 char *rot13(char *);
+int _putchar(char c);
+void print_number(int n);
 
 #endif
