@@ -12,7 +12,7 @@ void print_diagsums(int *a, int size)
 	int sum_primary = 0;
 	int sum_secondary = 0;
 	int i, index, secondary_index;
-	
+
 	for (i = 0; i < size; i++)
 	{
 		index = i * size + i;
