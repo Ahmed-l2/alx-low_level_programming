@@ -11,14 +11,14 @@ void print_diagsums(int *a, int size)
 {
 	int sum_primary = 0;
 	int sum_secondary = 0;
-
-	for (int i = 0; i < size; i++)
+	int i, index, secondary_index;
+	for (i = 0; i < size; i++)
 	{
-		int index = i * size + i;
+		index = i * size + i;
 
 		sum_primary += a[index];
 
-		int secondary_index = (i + 1) * (size - 1);
+		secondary_index = (i + 1) * (size - 1);
 
 		sum_secondary += a[secondary_index];
 	}
