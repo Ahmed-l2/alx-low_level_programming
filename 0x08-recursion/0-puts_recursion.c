@@ -10,7 +10,6 @@ _puts_recursion(char *s)
 	if (s == NULL || *s == '\0')
 	{
 		putchar("\n");
-		return;
 	}
 	else
 	{
