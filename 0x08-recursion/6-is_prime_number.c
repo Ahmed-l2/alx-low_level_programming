@@ -3,6 +3,7 @@
 /**
  * is_prime_number - finds whether numbe ris prime or not
  * @n: given int
+ * @o: the divisor
  * Return: returns 1 for prime and zero for none prime
  */
 
