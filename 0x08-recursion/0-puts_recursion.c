@@ -5,7 +5,7 @@
  * @s: s given string
  */
 
-_puts_recursion(char *s)
+void _puts_recursion(char *s)
 {
 	if (s == NULL || *s == '\0')
 	{
