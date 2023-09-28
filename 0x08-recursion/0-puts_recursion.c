@@ -9,6 +9,7 @@ _puts_recursion(char *s)
 {
 	if (s == NULL || *s == '\0')
 	{
+		putchar("\n");
 		return;
 	}
 	else
@@ -16,5 +17,4 @@ _puts_recursion(char *s)
 		_putchar(*s);
 		_puts_recursion(s + 1);
 	}
-	putchar("\n");
 }
