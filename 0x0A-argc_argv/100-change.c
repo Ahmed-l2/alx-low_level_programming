@@ -15,9 +15,9 @@ int main(int argc, char *argv[])
 		int i, lcoins = 0, money = atoi(argv[1]);
 		int coins[] = {25, 10, 5, 2, 1};
 
-		for (i = 0l i < 5; i++)
+		for (i = 0; i < 5; i++)
 		{
-			if (monmey >= coins[i])
+			if (money >= coins[i])
 			{
 				lcoins += money / coins[i];
 				money = money % coins[i];
