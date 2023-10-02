@@ -58,25 +58,19 @@ int _atoi(char *s)
 
 int main(int argc, char *argv[])
 {
-	int i, num, result = 1;
+	int num1, num2, result;
 
-	if (argc != 3)
+	if (argc != 3 || !_isdigit(argv[1]) || !_isdigit(argv[2]))
 	{
 		printf("Error\n");
 		return 1;
 	}
 
-	for (i = 1; i < argc; i++)
-	{
-		if (!_isdigit(argv[i]))
-		{
-			printf("Error\n");
-			return (1);
-		}
-		num = _atoi(argv[i]);
-		result *= num;
-	}
+	num1 = _atoi(argv[1]);
+	num2 = _atoi(argv[2]);
 
+	result = num1 * num2;
 	printf("%d\n", result);
-	return (0);
+
+	return 0;
 }
