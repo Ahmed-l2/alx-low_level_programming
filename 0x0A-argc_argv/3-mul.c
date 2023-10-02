@@ -9,6 +9,10 @@
 
 int _isdigit(char *c)
 {
+	if (*c == '-')
+	{
+		c++;
+	}
 	while (*c)
 	{
 		if (*c < '0' || *c > '9')
