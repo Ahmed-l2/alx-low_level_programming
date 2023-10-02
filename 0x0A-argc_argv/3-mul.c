@@ -1,16 +1,15 @@
 #include <stdio.h>
 
 /**
- * main - entry point
- * Description: a program that multiplies two numbers
- * @argc: argc
- * @argv: argv
- * Return: always 0
+ * _isdigit - function prototype
+ * Description: Checks if input is a digit or not
+ * @c: checks input of function
+ * Return: 1 if digit otherwise 0
  */
 
 int _isdigit(char *c)
 {
-        while(*c)
+	while (*c)
 	{
 		if (*c < '0' || *c > '9')
 		{
@@ -21,27 +20,41 @@ int _isdigit(char *c)
 	return (1);
 }
 
+/**
+ * _atoi - converts a string to an integer
+ * @s: string input parameter
+ * Return: converted integer from string
+ */
+
 int _atoi(char *s)
 {
-        unsigned int num = 0;
-        int sign = 1;
+	unsigned int num = 0;
+	int sign = 1;
 
-        do {
-                if (*s == '-')
-                {
-                        sign *= -1;
-                }
-                else if (*s >= '0' && *s <= '9')
-                {
-                        num = (num * 10) + (*s - '0');
-                }
-                else if (num > 0)
-                {
-                        break;
-                }
-        } while (*s++);
-        return (num * sign);
+	do {
+		if (*s == '-')
+		{
+			sign *= -1;
+		}
+		else if (*s >= '0' && *s <= '9')
+		{
+			num = (num * 10) + (*s - '0');
+		}
+		else if (num > 0)
+		{
+			break;
+		}
+	} while (*s++);
+	return (num * sign);
 }
+
+/**
+ * main - entry point
+ * Description: a program that multiplies two numbers
+ * @argc: argc
+ * @argv: argv
+ * Return: always 0
+ */
 
 int main(int argc, char *argv[])
 {
