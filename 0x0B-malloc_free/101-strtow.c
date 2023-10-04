@@ -8,7 +8,7 @@
 
 char **strtow(char *str)
 {
-	int r = 0, i, f, l, b, word_count, o;
+	int r = 0, i, f, l, b, word_count, o = 0;
 	char **ptr;
 	char *ntr;
 
@@ -24,7 +24,7 @@ char **strtow(char *str)
 		}
 	}
 	r++;
-	ptr = (char **)malloc((r + 1) * sizeof(char *));
+	ptr = (char **)malloc((r) * sizeof(char *));
 	for (b = 0; str[b]; b++)
 	{
 		if (b == 0 || (str[b] != ' ' && str[b - 1] == ' '))
