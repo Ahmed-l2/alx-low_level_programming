@@ -25,6 +25,10 @@ char **strtow(char *str)
 	}
 	r++;
 	ptr = (char **)malloc((r + 1) * sizeof(char *));
+	if (ptr == NULL)
+	{
+		return (NULL);
+	}
 	for (b = 0; str[b]; b++)
 	{
 		if (b == 0 || (str[b] != ' ' && str[b - 1] == ' '))
@@ -46,6 +50,6 @@ char **strtow(char *str)
 			o++;
 		}
 	}
-	ptr[r] = NULL;
+	ptr[r - 1] = NULL;
 	return (ptr);
 }
