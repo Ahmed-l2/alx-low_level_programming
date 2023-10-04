@@ -73,7 +73,7 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 	}
 
-	int size = strlen(s1) + strlen(s2);
+	int size = _strlen(s1) + _strlen(s2);
 	char *ptr = (char *)malloc((size + 1) * sizeof(char));
 
 	if (ptr == NULL)
