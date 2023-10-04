@@ -68,6 +68,8 @@ char *_strcpy(char *dest, char *src)
  */
 char *str_concat(char *s1, char *s2)
 {
+	int size;
+	char *ptr;
 
 	if (s1 == NULL)
 	{
@@ -77,6 +79,7 @@ char *str_concat(char *s1, char *s2)
 	{
 		s2 = "";
 	}
+
 	size = _strlen(s1) + _strlen(s2);
 	ptr = (char *)malloc((size + 1) * sizeof(char));
 
