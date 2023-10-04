@@ -5,23 +5,20 @@
  * @str: given string
  * Return: returns pointer to array of strings
  */
-
 char **strtow(char *str)
 {
 	int r = 0, i, f, l, b, word_count, o = 0;
 	char **ptr;
 	char *ntr;
 
-	if (str == NULL || str[0] == '\0')
+	if (str == NULL || str[0] == '\0' || (str[0] == ' ' && str[1] == '\0'))
 	{
 		return (NULL);
 	}
 	for (i = 0; str[i]; i++)
 	{
 		if (str[i] == ' ')
-		{
 			r++;
-		}
 	}
 	r++;
 	ptr = (char **)malloc((r + 1) * sizeof(char *));
