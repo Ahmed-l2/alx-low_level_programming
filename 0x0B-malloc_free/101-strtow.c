@@ -50,6 +50,6 @@ char **strtow(char *str)
 			o++;
 		}
 	}
-	ptr[r - 1] = NULL;
+	ptr[r] = NULL;
 	return (ptr);
 }
