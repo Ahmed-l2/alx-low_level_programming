@@ -12,7 +12,7 @@ char **strtow(char *str)
 	char **ptr;
 	char *ntr;
 
-	if (str == NULL || str == ' ')
+	if (str == NULL || str[0] == '\0')
 	{
 		return (NULL);
 	}
