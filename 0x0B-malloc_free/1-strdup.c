@@ -33,5 +33,12 @@ char *_strdup(char *str)
 	}
 	ptr[size] = '\0';
 
-	return (ptr);
+	if (ptr != NULL)
+	{
+		return (ptr);
+	}
+	else
+	{
+		return (NULL);
+	}
 }
