@@ -15,6 +15,11 @@ char *_strdup(char *str)
 	const char *src = str;
 	char *ptr;
 
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+
 	while (str[size])
 	{
 		size++;
@@ -33,12 +38,5 @@ char *_strdup(char *str)
 	}
 	ptr[size] = '\0';
 
-	if (ptr != NULL)
-	{
-		return (ptr);
-	}
-	else
-	{
-		return (NULL);
-	}
+	return (ptr);
 }
