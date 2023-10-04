@@ -42,6 +42,7 @@ char **strtow(char *str)
 				ntr[word_count - f] = str[word_count];
 			}
 			ntr[l - f + 1] = '\0';
+			printf("Word: %s\n", ntr);
 			ptr[o] = ntr;
 			o++;
 		}
