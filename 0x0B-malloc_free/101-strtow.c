@@ -36,7 +36,7 @@ char **strtow(char *str)
 			ptr[word_index] = (char *)malloc((word_length + 1) * sizeof(char));
 			if (!ptr[word_index])
 				for (j = 0; j <= word_index; j++)
-					free(ptr[j];
+					free(ptr[j]);
 				free(ptr);
 				return (NULL);
 			for (j = 0; j < word_length; j++)
