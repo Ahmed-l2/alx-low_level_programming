@@ -34,7 +34,7 @@ char **strtow(char *str)
 			if (ptr[word_count] == NULL)
 			{
 				for (k = 0; k < word_count; k++)
-					free(ptr[word_count]);
+					free(ptr[k]);
 				free(ptr[n - 1]);
 				free(ptr);
 				return (NULL);
