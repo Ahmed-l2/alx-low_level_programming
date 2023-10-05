@@ -9,7 +9,7 @@ int wrdcnt(char *s);
  */
 char **strtow(char *str)
 {
-	int i, j, k, l, n = 0, wc;
+	int i, j, k, l, n = 0, wc = 0;
 	char **w;
 
 	if (str == NULL || *str == '\0')
