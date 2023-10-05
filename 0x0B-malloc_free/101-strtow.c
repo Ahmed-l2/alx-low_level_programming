@@ -9,7 +9,7 @@ char **strtow(char *str)
 {
 
 	int num_words = 0, word_index = 0;
-	int start, end, word_length;
+	int start, end, word_length, j;
 	int i = 0;
 	char **ptr;
 
@@ -33,12 +33,12 @@ char **strtow(char *str)
 			ptr[word_index] = (char *)malloc((word_length + 1) * sizeof(char));
 			if (ptr[word_index] == NULL)
 			{
-				for (int j = 0; j < word_index; j++)
+				for (j = 0; j < word_index; j++)
 					free(ptr[j]);
 				free(ptr);
 				return (NULL);
 			}
-			for (int j = 0; j < word_length; j++)
+			for (j = 0; j < word_length; j++)
 				ptr[word_index][j] = str[start + j];
 			ptr[word_index][word_length] = '\0';
 			word_index++;
