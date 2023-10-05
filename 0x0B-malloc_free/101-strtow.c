@@ -9,18 +9,18 @@ int wrdcnt(char *s);
  */
 char **strtow(char *str)
 {
-	int i, j, k, l, n = 0, word_count;
-	char **ptr;
+	int i, j, k, l, n = 0, wc;
+	char **w;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
 	n = wrdcnt(str);
 	if (n == 1)
 		return (NULL);
-	ptr = (char **)malloc(n * sizeof(char *));
-	if (ptr == NULL)
+	w = (char **)malloc(n * sizeof(char *));
+	if (w == NULL)
 		return (NULL);
-	ptr[n - 1] = NULL;
+	w[n - 1] = NULL;
 	i = 0;
 	while (str[i])
 	{
@@ -29,26 +29,26 @@ char **strtow(char *str)
 			for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
 				;
 			j++;
-			ptr[word_count] = (char *)malloc(j * sizeof(char));
+			w[wc] = (char *)malloc(j * sizeof(char));
 			j--;
-			if (ptr[word_count] == NULL)
+			if (w[wc] == NULL)
 			{
-				for (k = 0; k < word_count; k++)
-					free(ptr[k]);
-				free(ptr[n - 1]);
-				free(ptr);
+				for (k = 0; k < wc; k++)
+					free(w[k]);
+				free(w[n - 1]);
+				free(w);
 				return (NULL);
 			}
 			for (l = 0; l < j; l++)
-				ptr[word_count][l] = str[i + l];
-			ptr[word_count][l] = '\0';
-			word_count++;
+				w[wc][l] = str[i + l];
+			w[wc][l] = '\0';
+			wc++;
 			i += j;
 		}
 		else
 			i++;
 	}
-	return (ptr);
+	return (w);
 }
 
 /**
