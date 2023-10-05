@@ -7,46 +7,43 @@
  */
 char **strtow(char *str)
 {
-	int r = 0, i, f, l, b, word_count, o = 0;
-	char **ptr;
-	char *ntr;
 
-	if (str == NULL || str[0] == '\0' || (str[0] == ' ' && str[1] == '\0'))
-	{
+	int num_words = 0, word_index = 0;
+	int start, end, word_length;
+	int i = 0;
+	char **ptr;
+
+	for (i = 0; str[i]; i++)
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
+			num_words++;
+	if (num_words == 0)
 		return (NULL);
-	}
+	ptr = (char **)malloc((num_words + 1) * sizeof(char *));
+	if (ptr == NULL)
+		return (NULL);
 	for (i = 0; str[i]; i++)
 	{
-		if (str[i] == ' ')
-			r++;
-	}
-	r++;
-	ptr = (char **)malloc((r + 1) * sizeof(char *));
-	if (ptr == NULL)
-	{
-		return (NULL);
-	}
-	for (b = 0; str[b]; b++)
-	{
-		if (b == 0 || (str[b] != ' ' && str[b - 1] == ' '))
+		if (str[i] != ' ')
 		{
-			f = b;
-		}
-		if (str[b] != ' ' && (str[b + 1] == ' ' || str[b + 1] == '\0'))
-		{
-			l = b;
-			ntr = (char *)malloc((l - f + 2) * sizeof(char));
-			if (ntr == NULL)
-				return (NULL);
-			for (word_count = f; word_count <= l; word_count++)
+			start = i;
+			while (str[i] != ' ' && str[i] != '\0')
+				i++;
+			end = i - 1;
+			word_length = end - start + 1;
+			ptr[word_index] = (char *)malloc((word_length + 1) * sizeof(char));
+			if (ptr[word_index] == NULL)
 			{
-				ntr[word_count - f] = str[word_count];
+				for (int j = 0; j < word_index; j++)
+					free(ptr[j]);
+				free(ptr);
+				return (NULL);
 			}
-			ntr[l - f + 1] = '\0';
-			ptr[o] = ntr;
-			o++;
+			for (int j = 0; j < word_length; j++)
+				ptr[word_index][j] = str[start + j];
+			ptr[word_index][word_length] = '\0';
+			word_index++;
 		}
 	}
-	ptr[r] = NULL;
+	ptr[num_words] = (NULL);
 	return (ptr);
 }
