@@ -1,5 +1,7 @@
 #include "main.h"
 
+int wrdcnt(char *s);
+
 /**
  * strtow - splits string into words
  * @str: given string
@@ -7,44 +9,70 @@
  */
 char **strtow(char *str)
 {
-	int num_words = 0;
-	int i, word_index, start, word_length, j;
+	int i, j, k, l, n = 0, word_count;
 	char **ptr;
 
-	if (!str || !*str)
+	if (str == NULL || *str == '\0')
 		return (NULL);
-	for (i = 0; str[i]; i++)
-		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
-			num_words++;
-	if (num_words == 0)
+	n = wrdcnt(str);
+	if (n == 1)
 		return (NULL);
-	ptr = (char **)malloc((num_words + 1) * sizeof(char *));
-	if (!ptr)
+	w = (char **)malloc(n * sizeof(char *));
+	if (w == NULL)
 		return (NULL);
+	w[n - 1] = NULL;
 	i = 0;
-	word_index = 0;
 	while (str[i])
 	{
-		while (str[i] == ' ')
-			i++;
-		if (str[i])
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
 		{
-			start = i;
-			while (str[i] && str[i] != ' ')
-				i++;
-			word_length = i - start;
-			ptr[word_index] = (char *)malloc((word_length + 1) * sizeof(char));
-			if (!ptr[word_index])
-				for (j = 0; j <= word_index; j++)
-					free(ptr[j]);
-				free(ptr);
+			for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
+				;
+			j++;
+			w[word_count] = char(char *)malloc(j * sizeof(char));
+			j--;
+			if (w[word_count] == NULL)
+			{
+				for (k = 0; k < word_count; k++)
+					free(w[word_count]);
+				free(w[n - 1]);
+				free(w);
 				return (NULL);
-			for (j = 0; j < word_length; j++)
-				ptr[word_index][j] = str[start + j];
-			ptr[word_index][word_length] = '\0';
-			word_index++;
+			}
+			for (l = 0; l < j; l++)
+				w[word_count][l] = str[i + l];
+			w[word_count][l] = '\0';
+			word_count++;
+			i += j;
+		}
+		else
+			i++;
+	}
+	return (w);
+}
+
+/**
+ * wrdcnt - counts number of words in string
+ * @s: given string
+ * Return: returns int off numbe rof words
+ */
+
+int wrdcnt(char *s)
+{
+	int i, n = 0;
+
+	for (i = 0; s[i]; i++)
+	{
+		if (s[i] == ' ')
+		{
+			if (s[i + 1] != ' ' && s[i + 1] != '\0')
+				n++;
+		}
+		else if (i == 0)
+		{
+			n++;
 		}
 	}
-	ptr[num_words] = NULL;
-	return (ptr);
+	n++;
+	return (n);
 }
