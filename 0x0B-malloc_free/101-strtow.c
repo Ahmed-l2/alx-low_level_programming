@@ -9,6 +9,7 @@ char **strtow(char *str)
 {
 	int num_words = 0;
 	int i, word_index, start, word_length, j;
+	char **ptr;
 
 	if (!str || !*str)
 		return (NULL);
@@ -17,8 +18,7 @@ char **strtow(char *str)
 			num_words++;
 	if (num_words == 0)
 		return (NULL);
-	char **ptr = (char **)malloc((num_words + 1) * sizeof(char *));
-
+	ptr = (char **)malloc((num_words + 1) * sizeof(char *));
 	if (!ptr)
 		return (NULL);
 	i = 0;
