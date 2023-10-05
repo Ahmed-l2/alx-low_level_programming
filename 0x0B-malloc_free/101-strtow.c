@@ -17,10 +17,10 @@ char **strtow(char *str)
 	n = wrdcnt(str);
 	if (n == 1)
 		return (NULL);
-	w = (char **)malloc(n * sizeof(char *));
+	ptr = (char **)malloc(n * sizeof(char *));
 	if (w == NULL)
 		return (NULL);
-	w[n - 1] = NULL;
+	ptr[n - 1] = NULL;
 	i = 0;
 	while (str[i])
 	{
@@ -29,26 +29,26 @@ char **strtow(char *str)
 			for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
 				;
 			j++;
-			w[word_count] = char(char *)malloc(j * sizeof(char));
+			ptr[word_count] = char(char *)malloc(j * sizeof(char));
 			j--;
-			if (w[word_count] == NULL)
+			if (ptr[word_count] == NULL)
 			{
 				for (k = 0; k < word_count; k++)
-					free(w[word_count]);
-				free(w[n - 1]);
-				free(w);
+					free(ptr[word_count]);
+				free(ptr[n - 1]);
+				free(ptr);
 				return (NULL);
 			}
 			for (l = 0; l < j; l++)
-				w[word_count][l] = str[i + l];
-			w[word_count][l] = '\0';
+				ptr[word_count][l] = str[i + l];
+			ptr[word_count][l] = '\0';
 			word_count++;
 			i += j;
 		}
 		else
 			i++;
 	}
-	return (w);
+	return (ptr);
 }
 
 /**
