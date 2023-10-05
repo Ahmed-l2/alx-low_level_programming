@@ -18,7 +18,7 @@ char **strtow(char *str)
 	if (n == 1)
 		return (NULL);
 	ptr = (char **)malloc(n * sizeof(char *));
-	if (w == NULL)
+	if (ptr == NULL)
 		return (NULL);
 	ptr[n - 1] = NULL;
 	i = 0;
@@ -29,7 +29,7 @@ char **strtow(char *str)
 			for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
 				;
 			j++;
-			ptr[word_count] = char(char *)malloc(j * sizeof(char));
+			ptr[word_count] = (char *)malloc(j * sizeof(char));
 			j--;
 			if (ptr[word_count] == NULL)
 			{
