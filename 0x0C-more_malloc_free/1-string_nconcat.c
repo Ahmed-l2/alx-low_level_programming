@@ -21,10 +21,9 @@ int isalpha(int c)
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i = 0, j = 0, len = 0;
+	unsigned int i = 0, j = 0, len = 0, u = 1;
 
 	char *ptr;
-
 	if (s1 == NULL)
 	{
 		s1 = " ";
@@ -50,12 +49,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		i++;
 	}
 	i = 0;
-	while (s2[i] != '\0' && i < n)
+	while (s2[i] != '\0')
 	{
-		if (isalpha(s2[i]))
+		if (isalpha(s2[i]) && u <= n)
 		{
 			ptr[j] = s2[i];
 			j++;
+			u++;
 		}
 		i++;
 	}
