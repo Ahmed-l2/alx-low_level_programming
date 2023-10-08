@@ -22,8 +22,8 @@ int isalpha(int c)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int i = 0, j = 0, len = 0, u = 1;
-
 	char *ptr;
+
 	if (s1 == NULL)
 	{
 		s1 = " ";
@@ -36,7 +36,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		len++;
 	}
-	ptr = (char *)malloc(len + n * sizeof(char));
+	ptr = (char *)malloc(len + n + 1 * sizeof(char));
 	if (ptr == NULL)
 		return (NULL);
 	while (s1[i] != '\0')
