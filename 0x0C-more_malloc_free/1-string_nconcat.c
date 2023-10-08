@@ -1,17 +1,6 @@
 #include "main.h"
 
 /**
- * isalpha - checks if character is alphabetical + spaces
- * @c: given character
- * Return: returns the character
- */
-
-int isalpha(int c)
-{
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == ' ');
-}
-
-/**
  * string_nconcat - a function that concatenates two strings
  * @s1: first string
  * @s2: second string
@@ -21,7 +10,7 @@ int isalpha(int c)
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i = 0, j = 0, len = 0, u = 1;
+	unsigned int i, j, len = 0;
 	char *ptr;
 
 	if (s1 == NULL)
@@ -39,26 +28,16 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	ptr = (char *)malloc(len + n + 1 * sizeof(char));
 	if (ptr == NULL)
 		return (NULL);
-	while (s1[i] != '\0')
+	for (i = 0; s1[i] != '\0'; i++)
 	{
-		if (isalpha(s1[i]))
-		{
-			ptr[j] = s1[i];
-			j++;
-		}
+		ptr[i] = s1[i];
+	}
+
+	for (j = 0; j < n; j++)
+	{
+		ptr[i] = s2[j];
 		i++;
 	}
-	i = 0;
-	while (s2[i] != '\0')
-	{
-		if (isalpha(s2[i]) && u <= n)
-		{
-			ptr[j] = s2[i];
-			j++;
-			u++;
-		}
-		i++;
-	}
-	ptr[j] = '\0';
+	ptr[i] = '\0';
 	return (ptr);
 }
