@@ -8,7 +8,7 @@
 
 int isalpha(int c)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z' || c == ' '));
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == ' ');
 }
 
 /**
@@ -21,7 +21,7 @@ int isalpha(int c)
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int i = 0, j = 0, len = 0;
+	unsigned int i = 0, j = 0, len = 0;
 
 	char *ptr;
 
@@ -39,9 +39,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	ptr = (char *)malloc(len + n * sizeof(char));
 	if (ptr == NULL)
-	{
 		return (NULL);
-	}
 	while (s1[i] != '\0')
 	{
 		if (isalpha(s1[i]))
@@ -55,8 +53,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	while (s2[i] != '\0' && i < n)
 	{
 		if (isalpha(s2[i]))
+		{
 			ptr[j] = s2[i];
 			j++;
+		}
 		i++;
 	}
 	ptr[j] = '\0';
