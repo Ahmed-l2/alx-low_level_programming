@@ -17,7 +17,7 @@ int isDigit(char s)
  * Return: returns integer
  */
 
-unsigned long int _atoi(char *s)
+int _atoi(const char *s)
 {
 	unsigned long int num = 0;
 	int sign = 1;
@@ -57,6 +57,20 @@ int _strlen(char *s)
 	return (i);
 }
 
+void print_int(unsigned long int n)
+{
+	unsigned long int div = 1, i, s;
+
+	for (i = 0; n / div > 9; i++, div *= 10)
+	;
+
+	for (; div >= 1; n %= div, div /= 10)
+	{
+		s = n / div;
+		_putchar('0' + s);
+	}
+}
+
 /**
  * main - entry point
  * Description: function that multiplies two numbers
@@ -68,7 +82,7 @@ int _strlen(char *s)
 int main(int argc, char *argv[])
 {
 	int i, j;
-	unsigned long int num1, num2, result;
+	unsigned long int num1, num2;
 
 	if (argc != 3)
 	{
@@ -91,8 +105,8 @@ int main(int argc, char *argv[])
 	num1 = _atoi(argv[1]);
 	num2 = _atoi(argv[2]);
 
-	result = num1 * num2;
+	print_int(num1 * num2);
+	printf("\n");
 
-	printf("%ld\n", result);
 	return (0);
 }
