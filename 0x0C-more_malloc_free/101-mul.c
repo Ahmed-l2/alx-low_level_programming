@@ -67,7 +67,8 @@ int _strlen(char *s)
 
 int main(int argc, char *argv[])
 {
-	int i, j, num1, num2, result;
+	int i, j;
+	unsigned long int num1, num2, result;
 
 	if (argc != 3)
 	{
