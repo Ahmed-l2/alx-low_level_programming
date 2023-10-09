@@ -19,7 +19,7 @@ int isDigit(char s)
 
 int _atoi(char *s)
 {
-	unsigned int num = 0;
+	unsigned long int num = 0;
 	int sign = 1;
 
 	do {
