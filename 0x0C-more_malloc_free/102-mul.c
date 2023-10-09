@@ -1,5 +1,15 @@
 #include "main.h"
 
+void _puts(char *str)
+{
+	int i = 0;
+	while (str[i])
+	{
+		_putchar(str[i]);
+		i++;
+	}
+}
+
 /**
  * isDigit - checks if the given character is a digit
  * @s: given character
@@ -17,7 +27,7 @@ int isDigit(char s)
  * Return: returns integer
  */
 
-unsigned long int _atoi(char *s)
+int _atoi(char *s)
 {
 	unsigned long int num = 0;
 	int sign = 1;
@@ -72,7 +82,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		printf("Error\n");
+		_puts("Error\n");
 		exit(98);
 	}
 
@@ -82,7 +92,7 @@ int main(int argc, char *argv[])
 		{
 			if (!isDigit(argv[i][j]))
 			{
-				printf("Error\n");
+				_puts("Error\n");
 				exit(98);
 			}
 		}
