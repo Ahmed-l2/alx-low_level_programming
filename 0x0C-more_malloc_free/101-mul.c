@@ -19,6 +19,25 @@ void _puts(char *str)
 }
 
 /**
+ * is_digit - checks if a character is a digit or not
+ * @s: given string
+ * Return: 1 if all characters are digits and 0 if not
+ */
+
+int is_digit(char *s)
+{
+	while (*s)
+	{
+		if (*s < '0' || *s > '9')
+		{
+			return (0);
+		}
+		s++;
+	}
+	return (1);
+}
+
+/**
  * _atoi - converts string to integer
  * @s: given string
  * Return: returns integer
@@ -79,6 +98,11 @@ int main(int argc, char const *argv[])
 	{
 		_puts("Error");
 		exit(98);
+	}
+	if (!is_digit(argv[1]) || !is_digit(argv[2]))
+	{
+		_puts("Error");
+		return (98);
 	}
 
 	print_int(_atoi(argv[1]) * _atoi(argv[2]));
