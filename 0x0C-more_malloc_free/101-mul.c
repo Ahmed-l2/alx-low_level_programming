@@ -92,6 +92,8 @@ void print_int(unsigned long int n)
 
 int main(int argc, char *argv[])
 {
+	int *result;
+
 	(void)argc;
 
 	if (argc != 3)
@@ -105,7 +107,15 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	print_int(_atoi(argv[1]) * _atoi(argv[2]));
+	result = malloc(sizeof(int));
+
+	if (result == NULL)
+	{
+		return (1);
+	}
+
+	*result = _atoi(argv[1]) * _atoi(argv[2]);
+	printf("%d\n", *result);
 	_putchar('\n');
 
 	return (0);
