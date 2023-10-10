@@ -13,7 +13,7 @@ int _atoi(const char *s)
 
 	for (num = 0; !(s[num] >= 48 && s[num] <= 57); num++)
 	{
-		if (*s == '-')
+		if (s[num] == '-')
 		{
 			sign *= -1;
 		}
@@ -55,6 +55,7 @@ void print_int(unsigned long int n)
 
 int main(int argc, char *argv[])
 {
+	(void)argc;
 
 	if (argc != 3)
 	{
