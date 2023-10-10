@@ -50,15 +50,15 @@ int _atoi(const char *s)
 
 void print_int(unsigned long int n)
 {
-	unsigned long int div = 1, i, s;
+	unsigned long int div = 1, i, r;
 
 	for (i = 0; n / div > 9; i++, div *= 10)
 	;
 
 	for (; div >= 1; n %= div, div /= 10)
 	{
-		s = n / div;
-		_putchar('0' + s);
+		r = n / div;
+		_putchar('0' + r);
 	}
 }
 
@@ -70,7 +70,7 @@ void print_int(unsigned long int n)
  * Return: always 0 (sucess)
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char const *argv[])
 {
 	(void)argc;
 
