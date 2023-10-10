@@ -1,122 +1,118 @@
 #include "main.h"
 
 /**
- * _puts - prints string followed by new line
- * @str: given string
+ * isDigit - checks if character is a digit
+ * @c: given character
+ * Return: 1 if c is digit otherwise 0
  */
 
-void _puts(char *str)
+int isDigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+/**
+ * _strlen - prints the length of a string
+ * @s: given string
+ * Return: returns length
+ */
+
+int _strlen(char *s)
 {
 	int i = 0;
 
-	while (str[i])
+	while (*s++)
 	{
-		_putchar(str[i]);
 		i++;
 	}
-	_putchar('\n');
-
+	return (i);
 }
 
 /**
- * is_digit - checks if a character is a digit or not
- * @s: given string
- * Return: 1 if all characters are digits and 0 if not
+ * string_multiply - used to multiply very large numbers
+ * @s1: first string
+ * @s2: second string
+ * Return: returns pointer to the multiplied string
  */
 
-int is_digit(char *s)
+char *string_multiply(char *s1, char *s2)
 {
-	while (*s)
+	char *p;
+	int str1, str2, i, j, k, n;
+
+	str1 = _strlen(s1);
+	str2 = _strlen(s2);
+	p = malloc(i = n = str1 + str2);
+	if (!p)
 	{
-		if (*s < '0' || *s > '9')
+		printf("Error\n"), exit(98);
+	}
+	while (i--)
+	{
+		p[i] = 0;
+	}
+	for (str1--; str1 >= 0; str1--)
+	{
+		if (!isDigit(s1[str1]))
 		{
-			return (0);
+			free(p);
+			printf("Error\n"), exit(98);
 		}
-		s++;
-	}
-	return (1);
-}
+		i = s1[str1] - '0';
+		k = 0;
 
-/**
- * _atoi - converts string to integer
- * @s: given string
- * Return: returns integer
- */
-
-int _atoi(const char *s)
-{
-	unsigned long int r = 0, num, i;
-	int sign = 1;
-
-	for (num = 0; !(s[num] >= 48 && s[num] <= 57); num++)
-	{
-		if (s[num] == '-')
+		for (str2 = _strlen(s2) - 1; str2 >= 0; str2--)
 		{
-			sign *= -1;
+			if (!isDigit(s2[str2]))
+			{
+				free(p);
+				printf("Error\n"), exit(98);
+			}
+			j = s2[str2] - '0';
+			k += p[str1 + str2 + 1] + (i * j);
+			p[str1 + str2 + 1] = k % 10;
+			k /= 10;
 		}
+		if (k)
+			p[str1 + str2 + 1] += k;
 	}
-
-	for (i = num; s[i] >= 48 && s[i] <= 57; i++)
-	{
-		r *= 10;
-		r += (s[i] - 48);
-	}
-	return (sign * r);
-}
-/**
- * print_int - prints int
- * @n: given int
- */
-
-void print_int(unsigned long int n)
-{
-	unsigned long int div = 1, i, r;
-
-	for (i = 0; n / div > 9; i++, div *= 10)
-	;
-
-	for (; div >= 1; n %= div, div /= 10)
-	{
-		r = n / div;
-		_putchar('0' + r);
-	}
+	return (p);
 }
 
 /**
  * main - entry point
- * Description: function that multiplies two numbers
+ * Description: a function that multiplies two positive numbers
  * @argc: argument count
  * @argv: argument vector
- * Return: always 0 (sucess)
+ * Return: returns 0
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int *result;
-
-	(void)argc;
+	char *p;
+	int a, b, c;
 
 	if (argc != 3)
 	{
-		_puts("Error");
-		exit(98);
+		printf("Error\n"), exit(98);
 	}
-	if (!is_digit(argv[1]) || !is_digit(argv[2]))
+
+	c = _strlen(argv[1]) + _strlen(argv[2]);
+	p = string_multiply(argv[1], argv[2]);
+	b = 0;
+	a = 0;
+	while (b < c)
 	{
-		_puts("Error");
-		exit(98);
+		if (p[b])
+			a = 1;
+		if (a)
+			_putchar(p[b] + '0');
+		b++;
 	}
-
-	result = malloc(sizeof(int));
-
-	if (result == NULL)
-	{
-		return (1);
-	}
-
-	*result = _atoi(argv[1]) * _atoi(argv[2]);
-	printf("%d\n", *result);
+	if (!a)
+		_putchar('0');
 	_putchar('\n');
-
+	free(p);
 	return (0);
 }
+
