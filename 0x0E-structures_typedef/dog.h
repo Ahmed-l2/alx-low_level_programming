@@ -3,8 +3,6 @@
 
 #include <stdio.h>
 
-void init_dog(struct dog *d, char *name, float age, char *owner);
-
 /**
  * struct dog - simple dog struct
  * @name: name of dog
@@ -20,5 +18,7 @@ struct dog
 	float age;
 	char *owner;
 };
+
+void init_dog(struct dog *d, char *name, float age, char *owner);
 
 #endif
