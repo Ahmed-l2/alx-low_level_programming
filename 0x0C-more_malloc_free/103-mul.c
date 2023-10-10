@@ -11,16 +11,29 @@ int isDigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
+/**
+ * _strlen - prints the length of a string
+ * @s: given string
+ * Return: returns length
+ */
+
 int _strlen(char *s)
 {
 	int i = 0;
 
-	while(*s++)
+	while (*s++)
 	{
 		i++;
 	}
 	return (i);
 }
+
+/**
+ * string_multiply - used to multiply very large numbers
+ * @s1: first string
+ * @s2: second string
+ * Return: returns pointer to the multiplied string
+ */
 
 char *string_multiply(char *s1, char *s2)
 {
@@ -40,7 +53,7 @@ char *string_multiply(char *s1, char *s2)
 	}
 	for (str1--; str1 >= 0; str1--)
 	{
-		if(!isDigit(s1[str1]))
+		if (!isDigit(s1[str1]))
 		{
 			free(p);
 			printf("Error\n"), exit(98);
@@ -60,14 +73,19 @@ char *string_multiply(char *s1, char *s2)
 			p[str1 + str2 + 1] = k % 10;
 			k /= 10;
 		}
-
 		if (k)
-		{
 			p[str1 + str2 + 1] += k;
-		}
 	}
 	return (p);
 }
+
+/**
+ * main - entry point
+ * Description: a function that multiplies two positive numbers
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: returns 0
+ */
 
 int main(int argc, char **argv)
 {
