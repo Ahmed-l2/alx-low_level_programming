@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 	if (!is_digit(argv[1]) || !is_digit(argv[2]))
 	{
 		_puts("Error");
-		return (98);
+		exit(98);
 	}
 
 	print_int(_atoi(argv[1]) * _atoi(argv[2]));
