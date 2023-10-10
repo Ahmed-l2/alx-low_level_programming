@@ -14,6 +14,7 @@ void _puts(char *str)
 		_putchar(str[i]);
 		i++;
 	}
+	_putchar('\n');
 
 }
 
@@ -76,7 +77,7 @@ int main(int argc, char const *argv[])
 
 	if (argc != 3)
 	{
-		_puts("Error ");
+		_puts("Error");
 		exit(98);
 	}
 
