@@ -1,6 +1,23 @@
 #include "main.h"
 
 /**
+ * _puts - prints string followed by new line
+ * @str: given string
+ */
+
+void _puts(char *str)
+{
+	int i = 0;
+
+	while (str[i])
+	{
+		_putchar(str[i]);
+		i++;
+	}
+
+}
+
+/**
  * _atoi - converts string to integer
  * @s: given string
  * Return: returns integer
@@ -19,7 +36,7 @@ int _atoi(const char *s)
 		}
 	}
 
-	for(i = num; s[i] >= 48 && s[i] <= 57; i++)
+	for (i = num; s[i] >= 48 && s[i] <= 57; i++)
 	{
 		r *= 10;
 		r += (s[i] - 48);
@@ -59,12 +76,12 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		printf("Error\n");
+		_puts("Error ");
 		exit(98);
 	}
 
 	print_int(_atoi(argv[1]) * _atoi(argv[2]));
-	printf("\n");
+	_putchar("\n");
 
 	return (0);
 }
