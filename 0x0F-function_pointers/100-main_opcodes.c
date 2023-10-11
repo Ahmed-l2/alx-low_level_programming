@@ -12,7 +12,7 @@
 
 int main(int argc, char **argv)
 {
-	int num, i;
+	int num;
 	char *ptr;
 
 	if (argc != 2)
@@ -31,9 +31,9 @@ int main(int argc, char **argv)
 
 	ptr = (char *)main;
 
-	for (i = 0; i < num; i++)
+	while (num--)
 	{
-		printf("%02x", (unsigned char)ptr[i]);
+		printf("%02hhx%s", *ptr++, num ? " " : "\n");
 	}
 	printf("\n");
 
