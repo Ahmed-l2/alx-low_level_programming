@@ -1,3 +1,4 @@
+#include "function_pointers.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -9,7 +10,7 @@
  * Return: returns 0
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	int num, i;
 	char *ptr;
@@ -32,7 +33,7 @@ int main(int argc, char *argv[])
 
 	for (i = 0; i < num; i++)
 	{
-		printf("%02x ", (unsigned char)ptr[i]);
+		printf("%02x", (unsigned char)ptr[i]);
 	}
 	printf("\n");
 
