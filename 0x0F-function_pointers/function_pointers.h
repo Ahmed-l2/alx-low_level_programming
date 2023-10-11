@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef FUNCTION_POINTER_H
+#define FUNCTION_POINTER_H
 
 #include <stdio.h>
 #include <stdlib.h>
