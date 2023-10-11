@@ -28,14 +28,12 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(2);
 	}
-
 	ptr = (char *)main;
 
 	while (num--)
 	{
 		printf("%02hhx%s", *ptr++, num ? " " : "\n");
 	}
-	printf("\n");
 
 	return (0);
 }
