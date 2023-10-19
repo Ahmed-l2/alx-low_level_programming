@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * adds a new node at the beginning of a list_t list
+ * add_node - adds a new node at the beginning of a list_t list
  * @head: current head node
  * @str: string to be duplicated
  * Return: returns new element or NULL if failure
@@ -19,7 +19,7 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	}
 
-	while (str[len] != '\0')
+	while (str[len])
 	{
 		len++;
 	}
