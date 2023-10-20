@@ -6,8 +6,8 @@ section .text
 	extern printf
 
 main:
-	mov rdi, hello
+	mov edi, hello
 	call printf
-	mov rax, 60
-	xor rdi, rdi
-	syscall
+	mov	eax, 0
+	xor eax, eax
+	ret
