@@ -35,7 +35,7 @@ size_t free_listint_safe(listint_t **h)
 			node_count++;
 			break;
 		}
-	}	
+	}
 	*h = NULL;
 	return (node_count);
 }
