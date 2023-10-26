@@ -17,7 +17,7 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	}
 
 	swap = ~(1 << index);
-	*n = *n | swap;
+	*n = *n & swap;
 
 	return (1);
 }
