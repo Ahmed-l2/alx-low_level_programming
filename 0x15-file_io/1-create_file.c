@@ -12,10 +12,12 @@ int create_file(const char *filename, char *text_content)
 	int f;
 	ssize_t bytesWritten = 0, length = 0;
 
-
-	while (text_content[length])
+	if(text_content != NULL)
 	{
-		length++;
+		while (text_content[length])
+		{
+			length++;
+		}
 	}
 
 	if (!filename)
