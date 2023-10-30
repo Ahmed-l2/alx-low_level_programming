@@ -31,7 +31,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	bytesRead = fread(buffer, sizeof(char), letters, fp);
 
-	if (bytesRead < 0)
+	if (!bytesRead)
 	{
 		free(buffer), fclose(fp);
 		return (0);
