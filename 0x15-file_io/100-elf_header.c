@@ -106,7 +106,7 @@ void print_osabi(Elf64_Ehdr elf_header)
 			printf("UNIX - NetBSD");
 			break;
 		case ELFOSABI_LINUX:
-			printf("UNIX - LINUX");
+			printf("UNIX - Linux");
 			break;
 		case ELFOSABI_SOLARIS:
 			printf("UNIX - Solaris");
@@ -187,16 +187,16 @@ void print_type(Elf64_Ehdr elf_header)
 	switch (ptr[i])
 	{
 		case ET_NONE:
-			printf("NONE (No file type");
+			printf("NONE (No file type)");
 			break;
 		case ET_REL:
-			printf("REL (Relcatable file");
+			printf("REL (Relcatable file)");
 			break;
 		case ET_EXEC:
-			printf("EXEC (EXecutable file");
+			printf("EXEC (EXecutable file)");
 			break;
 		case ET_DYN:
-			printf("DYN (Shared object file");
+			printf("DYN (Shared object file)");
 			break;
 		case ET_CORE:
 			printf("CORE (Core file)");
