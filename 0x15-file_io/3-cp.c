@@ -18,8 +18,8 @@
 int main(int argc, char *argv[])
 {
 	int file1, file2;
-	ssize_t bytes;
-	char buffer[BUF_SIZE];
+	ssize_t bytesR, bytesW;
+	char buffer[1024];
 
 	if (argc != 3)
 		dprintf(STDERR_FILENO, USAGE), exit(97);
@@ -30,13 +30,16 @@ int main(int argc, char *argv[])
 	if (file2 == -1)
 		dprintf(STDERR_FILENO, ERROR_WRITE, argv[2]), exit(99);
 
-	while ((bytes = read(file1, buffer, BUF_SIZE)) > 0)
+	bytesR = 1024
+	while (bytesR == 1024)
 	{
-		if (write(file2, buffer, bytes) != bytes)
+		bytesR = read(file1, buffer, 1024);
+		if (bytesR == -1)
+			dprintf(STDERR_FILENO, ERROR_READ, argv[1]), exit(98);
+		bytesW = write(file2, buffer, bytes);
+		if (bytesW == -1)
 			dprintf(STDERR_FILENO, ERROR_WRITE, argv[2]), exit(99);
 	}
-	if (bytes == -1)
-		dprintf(STDERR_FILENO, ERROR_READ, argv[1]), exit(98);
 
 	file1 = close(file1);
 	file2 = close(file2);
