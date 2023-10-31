@@ -40,10 +40,10 @@ int main(int argc, char *argv[])
 
 	file1 = close(file1);
 	file2 = close(file2);
-	if (file1)
+	if (file1 == -1)
 		dprintf(STDERR_FILENO, ERROR_CLOSE, file1), exit(100);
-	if (file2)
+	if (file2 == -1)
 		dprintf(STDERR_FILENO, ERROR_CLOSE, file1), exit(100);
 
-	return (EXIT_SUCCESS);
+	return (0);
 }
