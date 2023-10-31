@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	file1 = open(argv[1], O_RDONLY);
 	if (file1 == -1)
 		dprintf(STDERR_FILENO, ERROR_READ, argv[1]), exit(98);
-	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	if (file2 == -1)
 		dprintf(STDERR_FILENO, ERROR_WRITE, argv[2]), exit(99);
 
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 	if (file1)
 		dprintf(STDERR_FILENO, ERROR_CLOSE, file1), exit(100);
 	if (file2)
-		dprintf(STDERR_FILENO, ERROR_CLOSE, file2), exit(100);
+		dprintf(STDERR_FILENO, ERROR_CLOSE, file1), exit(100);
 
 	return (EXIT_SUCCESS);
 }
