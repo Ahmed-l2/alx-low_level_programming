@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 	if (file1)
 		dprintf(STDERR_FILENO, ERROR_CLOSE, file1), exit(100);
 	if (file2)
-		dprintf(STDERR_FILENO, ERROR_CLOSE, file1), exit(100);
+		dprintf(STDERR_FILENO, ERROR_CLOSE, file2), exit(100);
 
 	return (EXIT_SUCCESS);
 }
