@@ -226,10 +226,7 @@ void print_entry(Elf64_Ehdr elf_header)
 
 	if (elf_header.e_ident[EI_DATA] != ELFDATA2MSB)
 	{
-		if (elf_header.e_ident[EI_CLASS] == ELFCLASS64)
-			i = 7;
-		else
-			i = 3;
+		i = elf_header.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!ptr[i])
 			i--;
 		printf("%x", ptr[i--]);
@@ -240,10 +237,7 @@ void print_entry(Elf64_Ehdr elf_header)
 	else
 	{
 		i = 0;
-		if (elf_header.e_ident[EI_CLASS] == ELFCLASS64)
-			len = 7;
-		else
-			len = 3;
+		len = elf_header.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!ptr[i])
 			i++;
 		printf("%x", ptr[i++]);
