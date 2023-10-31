@@ -2,7 +2,7 @@
 
 #define USAGE "Usage: cp file_from file_to\n"
 #define ERROR_READ "Error: Can't read from file %s\n"
-#define ERROR_WRITE "Error: Can't write to file %s\n"
+#define ERROR_WRITE "Error: Can't write to %s\n"
 #define ERROR_CLOSE "Error: Can't close fd %d\n"
 
 /**
@@ -26,8 +26,7 @@ int main(int argc, char *argv[])
 	file1 = open(argv[1], O_RDONLY);
 	if (file1 == -1)
 		dprintf(STDERR_FILENO, ERROR_READ, argv[1]), exit(98);
-	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IRGRP
-			| S_IWGRP | S_IROTH);
+	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (file2 == -1)
 		dprintf(STDERR_FILENO, ERROR_WRITE, argv[2]), exit(99);
 
