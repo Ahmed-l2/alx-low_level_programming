@@ -26,11 +26,12 @@ int main(int argc, char *argv[])
 	file1 = open(argv[1], O_RDONLY);
 	if (file1 == -1)
 		dprintf(STDERR_FILENO, ERROR_READ, argv[1]), exit(98);
-	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
+	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IRGRP
+			| S_IWGRP | S_IROTH);
 	if (file2 == -1)
 		dprintf(STDERR_FILENO, ERROR_WRITE, argv[2]), exit(99);
 
-	bytesR = 0;
+	bytesR = 1024;
 	while (bytesR == 1024)
 	{
 		bytesR = read(file1, buffer, 1024);
