@@ -54,10 +54,10 @@ void print_data(Elf64_Ehdr elf_header)
 			printf("None");
 			break;
 		case ELFDATA2LSB:
-			printf("2's complement, big endian");
+			printf("2's complement, little endian");
 			break;
 		case ELFDATA2MSB:
-			printf("2's complement, little endian");
+			printf("2's complement, big endian");
 	}
 	printf("\n");
 }
