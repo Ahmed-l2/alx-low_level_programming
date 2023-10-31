@@ -107,7 +107,7 @@ void print_osabi(Elf64_Ehdr elf_header)
 			printf("UNIX - NetBSD");
 			break;
 		case ELFOSABI_LINUX:
-			printf("UNIX - GNU");
+			printf("UNIX - Linux");
 			break;
 		case ELFOSABI_SOLARIS:
 			printf("UNIX - Solaris");
@@ -244,7 +244,7 @@ void print_entry(Elf64_Ehdr elf_header)
 			len = 7;
 		else
 			len = 3;
-		while (ptr[i])
+		while (!ptr[i])
 			i++;
 		printf("%x", ptr[i++]);
 		for (; i <= len; i++)
