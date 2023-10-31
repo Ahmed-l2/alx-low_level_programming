@@ -106,7 +106,7 @@ void print_osabi(Elf64_Ehdr elf_header)
 			printf("UNIX - NetBSD");
 			break;
 		case ELFOSABI_LINUX:
-			printf("UNIX - Linux");
+			printf("UNIX - GNU");
 			break;
 		case ELFOSABI_SOLARIS:
 			printf("UNIX - Solaris");
@@ -278,7 +278,7 @@ int main(int argc, char *argv[])
 	}
 
 	bytes = read(file, &elf_header, sizeof(elf_header));
-	if (bytes == -1 || bytes != sizeof(elf_header))
+	if (bytes < 1 || bytes != sizeof(elf_header))
 	{
 		dprintf(STDERR_FILENO, "Can't read file: %s\n", argv[1]), exit(97);
 	}
