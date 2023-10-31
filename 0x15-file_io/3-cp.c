@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 	if (file2 == -1)
 		dprintf(STDERR_FILENO, ERROR_WRITE, argv[2]), exit(99);
 
-	bytesR = 1024
+	bytesR = 1024;
 	while (bytesR == 1024)
 	{
 		bytesR = read(file1, buffer, 1024);
