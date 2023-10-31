@@ -17,7 +17,7 @@
 
 int main(int argc, char *argv[])
 {
-	int file1, file2;
+	int file1, file2, error_close;
 	ssize_t bytesR, bytesW;
 	char buffer[1024];
 
@@ -41,11 +41,12 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO, ERROR_WRITE, argv[2]), exit(99);
 	}
 
-	file1 = close(file1);
-	file2 = close(file2);
-	if (file1 == -1)
+	error_close = close(file1);
+	if (error_close == -1)
 		dprintf(STDERR_FILENO, ERROR_CLOSE, file1), exit(100);
-	if (file2 == -1)
+
+	error_close = close(file2);
+	if (error_close == -1)
 		dprintf(STDERR_FILENO, ERROR_CLOSE, file1), exit(100);
 
 	return (0);
