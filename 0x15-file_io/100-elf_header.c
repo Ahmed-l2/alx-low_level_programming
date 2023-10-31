@@ -28,7 +28,7 @@ void print_class(Elf64_Ehdr elf_header)
 	switch (elf_header.e_ident[EI_CLASS])
 	{
 		case ELFCLASSNONE:
-			printf("None");
+			printf("none");
 			break;
 		case ELFCLASS32:
 			printf("ELF32");
@@ -51,13 +51,14 @@ void print_data(Elf64_Ehdr elf_header)
 	switch (elf_header.e_ident[EI_DATA])
 	{
 		case ELFDATANONE:
-			printf("None");
+			printf("none");
 			break;
 		case ELFDATA2LSB:
 			printf("2's complement, little endian");
 			break;
 		case ELFDATA2MSB:
 			printf("2's complement, big endian");
+			break;
 	}
 	printf("\n");
 }
@@ -265,7 +266,7 @@ void print_entry(Elf64_Ehdr elf_header)
 
 int main(int argc, char *argv[])
 {
-	int file;
+	int file, closef;
 	Elf64_Ehdr elf_header;
 	ssize_t bytes;
 
@@ -302,8 +303,8 @@ int main(int argc, char *argv[])
 	print_type(elf_header);
 	print_entry(elf_header);
 
-	file = close(file);
-	if (file == -1)
+	closef = close(file);
+	if (closef == -1)
 		dprintf(STDERR_FILENO, "Error closing file: %d\n", file), exit(99);
 	return (0);
 }
