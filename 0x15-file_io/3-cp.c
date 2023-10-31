@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 		bytesR = read(file1, buffer, 1024);
 		if (bytesR == -1)
 			dprintf(STDERR_FILENO, ERROR_READ, argv[1]), exit(98);
-		bytesW = write(file2, buffer, 1024);
+		bytesW = write(file2, buffer, bytesR);
 		if (bytesW == -1)
 			dprintf(STDERR_FILENO, ERROR_WRITE, argv[2]), exit(99);
 	}
