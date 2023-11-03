@@ -246,9 +246,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n"), exit(95);
 	file = open(argv[1], O_RDONLY);
 	if (file == -1)
-	{
 		dprintf(STDERR_FILENO, "Can't open file: %s\n", argv[1]), exit(96);
-	}
 
 	bytes = read(file, &elf_header, sizeof(Elf64_Ehdr));
 	if (bytes == -1)
@@ -259,9 +257,7 @@ int main(int argc, char *argv[])
 
 	if (elf_header.e_ident[0] == 127 && elf_header.e_ident[1] == 'E' &&
 			elf_header.e_ident[2] == 'L' && elf_header.e_ident[3] == 'F')
-	{
 		printf("ELF Header:\n");
-	}
 	else
 	{
 		close(file);
