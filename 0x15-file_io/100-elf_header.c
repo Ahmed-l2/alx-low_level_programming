@@ -278,7 +278,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Can't read file: %s\n", argv[1]), exit(97);
 	}
 
-	if (elf_header.e_ident[0] == "0x7f" && elf_header.e_ident[1] == 'E' &&
+	if (elf_header.e_ident[0] == 0x7f && elf_header.e_ident[1] == 'E' &&
 			elf_header.e_ident[2] == 'L' && elf_header.e_ident[3] == 'F')
 	{
 		printf("ELF Header:\n");
