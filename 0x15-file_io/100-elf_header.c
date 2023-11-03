@@ -278,7 +278,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Can't read file: %s\n", argv[1]), exit(97);
 	}
 
-	if (elf_header.e_ident[0] == 0x7f && elf_header.e_ident[1] == 'E' &&
+	if (elf_header.e_ident[0] == "0x7f" && elf_header.e_ident[1] == 'E' &&
 			elf_header.e_ident[2] == 'L' && elf_header.e_ident[3] == 'F')
 	{
 		printf("ELF Header:\n");
@@ -297,8 +297,8 @@ int main(int argc, char *argv[])
 	print_type(elf_header);
 	print_entry(elf_header);
 
-	closef = close(file);
-	if (closef == -1)
+	file = close(file);
+	if (file == -1)
 		dprintf(STDERR_FILENO, "Error closing file: %d\n", file), exit(99);
 	return (0);
 }
