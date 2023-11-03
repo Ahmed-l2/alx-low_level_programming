@@ -260,7 +260,7 @@ void print_entry(Elf64_Ehdr elf_header)
 
 int main(int argc, char *argv[])
 {
-	int file, closef;
+	int file;
 	Elf64_Ehdr elf_header;
 	ssize_t bytes;
 
