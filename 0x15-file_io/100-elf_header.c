@@ -13,11 +13,12 @@ void print_magic(Elf64_Ehdr elf_header)
 	printf("  Magic:   ");
 	for (index = 0; index < EI_NIDENT; index++)
 	{
-		if (index != 0)
-			printf(" ");
 		printf("%02x", elf_header.e_ident[index]);
+		if (index == EI_NIDENT)
+			printf("\n");
+		else
+			printf(" ");
 	}
-	printf("\n");
 }
 
 /**
