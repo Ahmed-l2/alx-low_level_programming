@@ -13,13 +13,11 @@ void print_magic(Elf64_Ehdr elf_header)
 	printf("  Magic:   ");
 	for (index = 0; index < EI_NIDENT; index++)
 	{
-		printf("%02x", elf_header.e_ident[index]);
-
-		if (index == EI_NIDENT - 1)
-			printf("\n");
-		else
+		if (index != 0)
 			printf(" ");
+		printf("%02x", elf_header.e_ident[index]);
 	}
+	printf("\n");
 }
 
 /**
@@ -243,10 +241,10 @@ int main(int argc, char *argv[])
 	ssize_t bytes;
 
 	if (argc != 2)
-		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n"), exit(95);
+		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n"), exit(98);
 	file = open(argv[1], O_RDONLY);
 	if (file == -1)
-		dprintf(STDERR_FILENO, "Can't open file: %s\n", argv[1]), exit(96);
+		dprintf(STDERR_FILENO, "Can't open file: %s\n", argv[1]), exit(98);
 
 	bytes = read(file, &elf_header, sizeof(Elf64_Ehdr));
 	if (bytes == -1)
@@ -261,7 +259,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		close(file);
-		dprintf(STDERR_FILENO, "Not ELF file: %s\n", argv[1]), exit(98);
+		dprintf(STDERR_FILENO, "Error: Not ELF file: %s\n", argv[1]), exit(98);
 	}
 
 	print_magic(elf_header);
@@ -275,6 +273,6 @@ int main(int argc, char *argv[])
 
 	file = close(file);
 	if (file == -1)
-		dprintf(STDERR_FILENO, "Error closing file: %d\n", file), exit(99);
+		dprintf(STDERR_FILENO, "Error closing file: %d\n", file), exit(98);
 	return (0);
 }
