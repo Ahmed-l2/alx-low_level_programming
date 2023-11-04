@@ -12,13 +12,9 @@ void print_magic(Elf64_Ehdr elf_header)
 
 	printf("  Magic:   ");
 	for (index = 0; index < EI_NIDENT; index++)
-	{
-		printf("%02x", elf_header.e_ident[index]);
-		if (index == EI_NIDENT - 1)
-			printf("\n");
-		else
-			printf(" ");
-	}
+		printf("%2.2x%s", elf_header.e_ident[index], index ==
+				EI_NIDENT - 1 ? " " : " ");
+	printf("\n");
 }
 
 /**
@@ -111,7 +107,7 @@ void print_osabi(Elf64_Ehdr elf_header)
 			printf("UNIX - NetBSD");
 			break;
 		case ELFOSABI_LINUX:
-			printf("UNIX - Linux");
+			printf("UNIX - GNU");
 			break;
 		case ELFOSABI_SOLARIS:
 			printf("UNIX - Solaris");
@@ -199,8 +195,9 @@ void print_entry(Elf64_Ehdr elf_header)
 
 	ptr = (unsigned char *)&elf_header.e_entry;
 
-	printf("  Entry point address:               0x");
+	printf("  Entry point address:               ");
 
+	printf("0x");
 	if (elf_header.e_ident[EI_DATA] != ELFDATA2MSB)
 	{
 		i = elf_header.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
