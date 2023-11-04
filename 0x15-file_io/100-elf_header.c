@@ -13,8 +13,7 @@ void print_magic(Elf64_Ehdr elf_header)
 	printf("  Magic:   ");
 	for (index = 0; index < EI_NIDENT; index++)
 		printf("%2.2x%s", elf_header.e_ident[index], index ==
-				EI_NIDENT - 1 ? " " : " ");
-	printf("\n");
+				EI_NIDENT - 1 ? "\n" : " ");
 }
 
 /**
@@ -107,7 +106,7 @@ void print_osabi(Elf64_Ehdr elf_header)
 			printf("UNIX - NetBSD");
 			break;
 		case ELFOSABI_LINUX:
-			printf("UNIX - GNU");
+			printf("UNIX - System V");
 			break;
 		case ELFOSABI_SOLARIS:
 			printf("UNIX - Solaris");
@@ -168,7 +167,7 @@ void print_type(Elf64_Ehdr elf_header)
 			printf("REL (Relcatable file)");
 			break;
 		case ET_EXEC:
-			printf("EXEC (EXecutable file)");
+			printf("EXEC (Executable file)");
 			break;
 		case ET_DYN:
 			printf("DYN (Shared object file)");
