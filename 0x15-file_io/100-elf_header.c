@@ -14,7 +14,7 @@ void print_magic(Elf64_Ehdr elf_header)
 	for (index = 0; index < EI_NIDENT; index++)
 	{
 		printf("%02x", elf_header.e_ident[index]);
-		if (index == EI_NIDENT)
+		if (index == EI_NIDENT - 1)
 			printf("\n");
 		else
 			printf(" ");
