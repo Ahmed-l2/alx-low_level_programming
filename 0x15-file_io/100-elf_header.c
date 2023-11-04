@@ -246,21 +246,17 @@ int main(int argc, char *argv[])
 	if (file == -1)
 		dprintf(STDERR_FILENO, "Can't open file: %s\n", argv[1]), exit(98);
 
-	bytes = read(file, &elf_header, sizeof(Elf64_Ehdr));
-	if (bytes == -1)
-	{
-		close(file);
+	bytes = read(file, &elf_header, sizeof(elf_header));
+	if (bytes < 1 || bytes != sizeof(elf_header))
 		dprintf(STDERR_FILENO, "Can't read file: %s\n", argv[1]), exit(98);
-	}
 
 	if (elf_header.e_ident[0] == 127 && elf_header.e_ident[1] == 'E' &&
 			elf_header.e_ident[2] == 'L' && elf_header.e_ident[3] == 'F')
-		printf("ELF Header:\n");
-	else
 	{
-		close(file);
-		dprintf(STDERR_FILENO, "Error: Not ELF file: %s\n", argv[1]), exit(98);
+		printf("ELF Header:\n");
 	}
+	else
+		dprintf(STDERR_FILENO, "Error: Not ELF file\n"), exit(98);
 
 	print_magic(elf_header);
 	print_class(elf_header);
@@ -271,8 +267,7 @@ int main(int argc, char *argv[])
 	print_type(elf_header);
 	print_entry(elf_header);
 
-	file = close(file);
-	if (file == -1)
+	if (close(file))
 		dprintf(STDERR_FILENO, "Error closing file: %d\n", file), exit(98);
-	return (0);
+	return (EXIT_SUCCESS);
 }
