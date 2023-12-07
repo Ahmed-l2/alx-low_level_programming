@@ -1,8 +1,8 @@
 #ifndef LISTS_H
 #define LISTS_H
 
-#define <stdio.h>
-#define <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * struct dlistint_s - doubly linked list

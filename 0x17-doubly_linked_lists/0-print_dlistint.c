@@ -1,19 +1,18 @@
-#define <lists.h>
+#include "lists.h"
 
 size_t print_dlistint(const dlistint_t *h)
 {
-	dlistint_t *temp = h;
-	node_count = 0;
+	int node_count = 0;
 
 	if (!h)
 	{
 		return 0;
 	}
 
-	while (temp != NULL)
+	while (h != NULL)
 	{
-		print("%d\n", temp->data);
-		temp = temp->next;
+		printf("%d\n", h->data);
+		h = h->next;
 		node_count++;
 	}
 
