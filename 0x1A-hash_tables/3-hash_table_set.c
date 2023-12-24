@@ -10,7 +10,7 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long in i;
+	unsigned long int i;
 	hash_note_t *new_node, current = NULL;
 
 	if (!ht || !key || !value)
