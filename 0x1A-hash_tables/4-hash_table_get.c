@@ -10,7 +10,7 @@
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	unsigned long int i;
-	hash_table_t *current = NULL;
+	hash_node_t *current = NULL;
 	const unsigned char *temp_key = (const unsigned char *)key;
 
 	if (!ht || !key)
@@ -18,7 +18,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 		return (NULL);
 	}
 
-	i = index_key(temp_key, ht->size);
+	i = key_index(temp_key, ht->size);
 
 	current = ht->array[i];
 	while (current)
