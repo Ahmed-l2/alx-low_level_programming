@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module for island_perimeter"""
 
+
 def island_perimeter(grid):
     """
     Finds the perimeter of the island described in grid
@@ -29,9 +30,10 @@ def island_perimeter(grid):
 
         if i >= len(grid) or j >= len(grid[0]) or i < 0 or j < 0 \
                 or grid[i][j] == 0:
-                    return 1
+            return 1
+
         if (i, j) in visit:
-            return 0;
+            return 0
 
         visit.add((i, j))
 
@@ -46,13 +48,3 @@ def island_perimeter(grid):
         for j in range(len(grid[0])):
             if grid[i][j]:
                 return dfs(i, j)
-
-if __name__ == "__main__":
-    grid = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0, 0],
-        [0, 0, 0, 0, 0, 0]
-    ]
-    print(island_perimeter(grid))
