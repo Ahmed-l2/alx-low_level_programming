@@ -84,7 +84,7 @@ int exponential_search(int *array, size_t size, int value)
 			min(size - 1, bound * 2));
 	result = (binary_search(array + bound, min(bound + 1, size - bound), value));
 
-	if (!result)
+	if (result == -1)
 		return (-1);
 	else
 		return (result + bound);
