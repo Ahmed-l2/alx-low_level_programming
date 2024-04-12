@@ -22,7 +22,7 @@ int advanced_bin_helper(int *array, size_t l, size_t r, int value)
 		printf("%d, ", array[i]);
 	printf("%d\n", array[i]);
 
-	m = (l + (l + r) / 2);
+	m = l + (r - l) / 2;
 
 	if (array[m] == value && (m == l || array[m - 1] != value))
 		return (m);
